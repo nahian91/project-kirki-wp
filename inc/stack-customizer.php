@@ -136,3 +136,98 @@ Kirki::add_field( 'stack_config', [
 		],
 	],
 ] );
+
+
+// About Section
+Kirki::add_section( 'about_section', array(
+    'title'          => esc_html__( 'About Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+// About Heading
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'about_heading',
+	'label'    => esc_html__( 'About Heading', 'stack' ),
+	'section'  => 'about_section',
+	'default'  => esc_html__( 'We are helping to grow
+    your business.', 'stack' )
+] );
+
+// About Description
+Kirki::add_field( 'stack_config', [
+	'type'     => 'textarea',
+	'settings' => 'about_desc',
+	'label'    => esc_html__( 'About Description', 'stack' ),
+	'section'  => 'about_section',
+	'default'  => esc_html__( 'A digital studio specialising in User Experience & eCommerce, we combine innovation with digital craftsmanship to help brands fulfill their potential.', 'stack' )
+] );
+
+
+// About Btn Text
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'about_btn_text',
+	'label'    => esc_html__( 'About Button Text', 'stack' ),
+	'section'  => 'about_section',
+	'default'  => esc_html__( 'More About Us', 'stack' ),
+] );
+
+// Bannar Btn Link
+Kirki::add_field( 'stack_config', [
+	'type'     => 'link',
+	'settings' => 'about_btn_link',
+	'label'    => esc_html__( 'About Button Link', 'stack' ),
+	'section'  => 'about_section',
+	'default'  => esc_html__( 'https://www.google.com', 'stack' ),
+	'priority' => 10,
+] );
+
+
+// About Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'About Items', 'kirki' ),
+	'section'     => 'about_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'kirki' ),
+		'field' => 'about_item_title',
+	],
+	'button_label' => esc_html__('Add New About Item', 'kirki' ),
+	'settings'     => 'about_repeater',
+	'default'      => [
+		[
+            'about_item_icon' => 'lni-microphone',
+			'about_item_title' => __( 'What we do', 'kirki' ),
+			'about_item_desc'  => __( 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia con- sequuntur magni dolores ', 'kirki' ),
+		],
+	],
+	'fields' => [
+        'about_item_icon' => [
+			'type'        => 'select',
+			'label'       => esc_html__( 'About Item Icon', 'kirki' ),
+			'default'     => '',
+            'choices'     => array(
+                'lni-microphone' => __('Icon 1', 'stack'),
+                'lni-users' => __('Icon 2', 'stack'),
+                'lni-medall-alt' => __('Icon 3', 'stack'),
+            )
+		],
+		'about_item_title' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'About Item Title', 'kirki' ),
+			'default'     => '',
+		],
+		'about_item_desc' => [
+			'type'        => 'textarea',
+			'label'       => esc_html__( 'About Item Description', 'kirki' ),
+			'default'     => '',
+		],
+	],
+    'choices' => [
+		'limit' => 3
+	],
+] );
