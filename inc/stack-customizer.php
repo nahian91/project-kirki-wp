@@ -188,27 +188,27 @@ Kirki::add_field( 'stack_config', [
 // About Items
 Kirki::add_field( 'stack_config', [
 	'type'        => 'repeater',
-	'label'       => esc_html__( 'About Items', 'kirki' ),
+	'label'       => esc_html__( 'About Items', 'stack' ),
 	'section'     => 'about_section',
 	'priority'    => 10,
 	'row_label' => [
 		'type'  => 'field',
-		'value' => esc_html__( 'Add New Item', 'kirki' ),
+		'value' => esc_html__( 'Add New Item', 'stack' ),
 		'field' => 'about_item_title',
 	],
-	'button_label' => esc_html__('Add New About Item', 'kirki' ),
+	'button_label' => esc_html__('Add New About Item', 'stack' ),
 	'settings'     => 'about_repeater',
 	'default'      => [
 		[
             'about_item_icon' => 'lni-microphone',
-			'about_item_title' => __( 'What we do', 'kirki' ),
-			'about_item_desc'  => __( 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia con- sequuntur magni dolores ', 'kirki' ),
+			'about_item_title' => __( 'What we do', 'stack' ),
+			'about_item_desc'  => __( 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia con- sequuntur magni dolores ', 'stack' ),
 		],
 	],
 	'fields' => [
         'about_item_icon' => [
 			'type'        => 'select',
-			'label'       => esc_html__( 'About Item Icon', 'kirki' ),
+			'label'       => esc_html__( 'About Item Icon', 'stack' ),
 			'default'     => '',
             'choices'     => array(
                 'lni-microphone' => __('Icon 1', 'stack'),
@@ -218,16 +218,378 @@ Kirki::add_field( 'stack_config', [
 		],
 		'about_item_title' => [
 			'type'        => 'text',
-			'label'       => esc_html__( 'About Item Title', 'kirki' ),
+			'label'       => esc_html__( 'About Item Title', 'stack' ),
 			'default'     => '',
 		],
 		'about_item_desc' => [
 			'type'        => 'textarea',
-			'label'       => esc_html__( 'About Item Description', 'kirki' ),
+			'label'       => esc_html__( 'About Item Description', 'stack' ),
 			'default'     => '',
 		],
 	],
     'choices' => [
 		'limit' => 3
+	],
+] );
+
+
+// Services Section
+Kirki::add_section( 'services_section', array(
+    'title'          => esc_html__( 'Services Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Services Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'checkbox',
+	'settings' => 'services_show',
+	'label'    => esc_html__( 'Services Show?', 'stack' ),
+	'section'  => 'services_section',
+	'default'  => true
+] );
+
+// Services Heading
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'services_heading',
+	'label'    => esc_html__( 'Services Heading', 'stack' ),
+	'section'  => 'services_section',
+	'default'  => esc_html__( 'Our Services', 'stack' )
+] );
+
+//  Services Description
+Kirki::add_field( 'stack_config', [
+	'type'     => 'textarea',
+	'settings' => 'services_desc',
+	'label'    => esc_html__( 'Services Description', 'stack' ),
+	'section'  => 'services_section',
+	'default'  => esc_html__( 'A desire to help and empower others between community contributors in technology
+	began to grow in 2020.', 'stack' )
+] );
+
+// Services Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Services Items', 'stack' ),
+	'section'     => 'services_section',
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'service_item_title',
+	],
+	'button_label' => esc_html__('Add New Service Item', 'stack' ),
+	'settings'     => 'services_repeater',
+	'default'      => [
+		[
+            'service_item_icon' => 'lni-pencil',
+			'service_item_title' => __( 'Service Title', 'stack' ),
+			'service_item_desc'  => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde perspiciatis dicta labore nulla beatae quaerat quia incidunt laborum aspernatur...', 'stack' ),
+		],
+	],
+	'fields' => [
+        'service_item_icon' => [
+			'type'        => 'select',
+			'label'       => esc_html__( 'Service Item Icon', 'stack' ),
+			'default'     => '',
+            'choices'     => array(
+                'lni-pencil' => __('Pencil', 'stack'),
+                'lni-briefcase' => __('Briefcase', 'stack'),
+                'lni-cog' => __('Cog', 'stack'),
+                'lni-mobile' => __('Mobile', 'stack'),
+                'lni-layers' => __('Layers', 'stack'),
+                'lni-rocket' => __('Rocket', 'stack'),
+            )
+		],
+		'service_item_title' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Service Item Title', 'stack' ),
+			'default'     => '',
+		],
+		'service_item_desc' => [
+			'type'        => 'textarea',
+			'label'       => esc_html__( 'Service Item Description', 'stack' ),
+			'default'     => '',
+		],
+	],
+    'choices' => [
+		'limit' => 6
+	],
+] );
+
+//  Services Items Align
+Kirki::add_field( 'stack_config', [
+	'type'     => 'radio-buttonset',
+	'settings' => 'services_item_align',
+	'label'    => esc_html__( 'Services Items Alignment', 'stack' ),
+	'section'  => 'services_section',
+	'default'  => 'left',
+	'choices'     => [
+		'left'   => esc_html__( 'Left', 'stack' ),
+		'center' => esc_html__( 'Center', 'stack' ),
+		'right'  => esc_html__( 'Right', 'stack' ),
+	],
+	'output' => array(
+		array(
+			'element' => '.services-item',
+			'property' => 'text-align'
+		)
+	)
+] );
+
+//  Services Items Number
+Kirki::add_field( 'stack_config', [
+	'type'     => 'select',
+	'settings' => 'services_item_number',
+	'label'    => esc_html__( 'Services Items Number', 'stack' ),
+	'section'  => 'services_section',
+	'default'  => 'col-lg-4',
+	'choices'     => [
+		'col-lg-4'   => esc_html__( '3 Columns', 'stack' ),
+		'col-lg-6' => esc_html__( '2 Columns', 'stack' ),
+		'col-lg-3'  => esc_html__( '4 Columns', 'stack' ),
+	]
+] );
+
+// Video Section
+Kirki::add_section( 'video_section', array(
+    'title'          => esc_html__( 'Video Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Video Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'checkbox',
+	'settings' => 'video_show',
+	'label'    => esc_html__( 'Video Show?', 'stack' ),
+	'section'  => 'video_section',
+	'default'  => true
+] );
+
+// Video URL
+Kirki::add_field( 'stack_config', [
+	'type'     => 'link',
+	'settings' => 'video_url',
+	'label'    => esc_html__( 'Video URL', 'stack' ),
+	'section'  => 'video_section',
+	'default'  => 'https://www.youtube.com/watch?v=yP6kdOZHids'
+] );
+
+// Video Title
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'video_title',
+	'label'    => esc_html__( 'Video Title', 'stack' ),
+	'section'  => 'video_section',
+	'default'  => __('Watch Video', 'stack')
+] );
+
+// Video Background
+Kirki::add_field( 'stack_config', [
+	'type'        => 'background',
+	'settings'    => 'video_background',
+	'label'       => esc_html__( 'Background Control', 'stack' ),
+	'section'     => 'video_section',
+	'default'     => [
+		'background-color'      => 'rgba(20,20,20,.8)',
+		'background-image'      => '',
+		'background-repeat'     => 'repeat',
+		'background-position'   => 'center center',
+		'background-size'       => 'cover',
+		'background-attachment' => 'scroll',
+	],
+	'transport'   => 'auto',
+	'output'      => [
+		[
+			'element' => '.video-promo',
+		],
+	],
+] );
+
+
+// Team Section
+Kirki::add_section( 'team_section', array(
+    'title'          => esc_html__( 'Team Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Team Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'checkbox',
+	'settings' => 'team_show',
+	'label'    => esc_html__( 'Team Show?', 'stack' ),
+	'section'  => 'team_section',
+	'default'  => true
+] );
+
+// Team Heading
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'team_heading',
+	'label'    => esc_html__( 'Team Heading', 'stack' ),
+	'section'  => 'team_section',
+	'default'  => esc_html__( 'Our Team', 'stack' )
+] );
+
+//  Team Description
+Kirki::add_field( 'stack_config', [
+	'type'     => 'textarea',
+	'settings' => 'team_desc',
+	'label'    => esc_html__( 'Team Description', 'stack' ),
+	'section'  => 'team_section',
+	'default'  => esc_html__( 'A desire to help and empower others between community contributors in technology
+	began to grow in 2020.', 'stack' )
+] );
+
+// Team Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Team Items', 'stack' ),
+	'section'     => 'team_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'team_title',
+	],
+	'button_label' => esc_html__('Add New About Item', 'stack' ),
+	'settings'     => 'team_repeater',
+	'fields' => [
+        'team_image' => [
+			'type'        => 'image',
+			'label'       => esc_html__( 'Team Image', 'stack' ),
+			'default'     => '',
+		],
+		'team_facebook' => [
+			'type'        => 'link',
+			'label'       => esc_html__( 'Facebook URL', 'stack' ),
+			'default'     => 'https://www.facebook.com',
+		],
+		'team_twitter' => [
+			'type'        => 'link',
+			'label'       => esc_html__( 'Twitter URL', 'stack' ),
+			'default'     => 'https://www.twitter.com',
+		],
+		'team_instagram' => [
+			'type'        => 'link',
+			'label'       => esc_html__( 'Instagram URL', 'stack' ),
+			'default'     => 'https://www.instagram.com',
+		],
+		'team_title' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Team Name', 'stack' ),
+			'default'     => __('John Doe', 'stack'),
+		],
+		'team_desg' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Team Designation', 'stack' ),
+			'default'     => __('Web Developer', 'stack'),
+		],
+	],
+    'choices' => [
+		'limit' => 4
+	],
+] );
+
+
+// Counter Section
+Kirki::add_section( 'counter_section', array(
+    'title'          => esc_html__( 'Counter Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Team Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'checkbox',
+	'settings' => 'counter_show',
+	'label'    => esc_html__( 'Counter Show?', 'stack' ),
+	'section'  => 'counter_section',
+	'default'  => true
+] );
+
+// Counter Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Counter Items', 'stack' ),
+	'section'     => 'counter_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'counter_title',
+	],
+	'button_label' => esc_html__('Add New Counter Item', 'stack' ),
+	'settings'     => 'counter_repeater',
+	'fields' => [
+        'counter_icon' => [
+			'type'        => 'select',
+			'label'       => esc_html__( 'Counter Icon', 'stack' ),
+			'default'     => '',
+			'choices'     => array(
+				'lni-users' => __('Users', 'stack'),
+				'lni-emoji-smile' => __('Smile', 'stack'),
+				'lni-download' => __('Download', 'stack'),
+				'lni-thumbs-up' => __('Thumbs Up', 'stack'),
+			),
+		],
+		'counter_number' => [
+			'type'        => 'number',
+			'label'       => esc_html__( 'Counter Number', 'stack' ),
+			'default'     => '100',
+		],
+		'counter_title' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Counter Title', 'stack' ),
+			'default'     => __('Users', 'stack'),
+		],
+		'counter_animation_name' => [
+			'type'        => 'select',
+			'label'       => esc_html__( 'Counter Animation Name', 'stack' ),
+			'default'     => 'fadeInUp',
+			'choices'     => array(
+				'fadeInUp' => __('fadeInUp', 'stack'),
+				'fadeInLeft' => __('fadeInLeft', 'stack'),
+				'fadeInRight' => __('fadeInRight', 'stack'),
+			),
+		],
+		'counter_animation_duration' => [
+			'type'        => 'select',
+			'label'       => esc_html__( 'Counter Animation Duration', 'stack' ),
+			'default'     => '0.2s',
+			'choices'     => array(
+				'0.2s' => __('0.2s', 'stack'),
+				'0.4s' => __('0.4s', 'stack'),
+				'0.6s' => __('0.6s', 'stack'),
+				'0.8s' => __('0.8s', 'stack'),
+			),
+		],
+	],
+    'choices' => [
+		'limit' => 4
+	],
+] );
+
+// Counter Background
+Kirki::add_field( 'stack_config', [
+	'type'        => 'background',
+	'settings'    => 'counter_background',
+	'label'       => esc_html__( 'Background', 'stack' ),
+	'section'     => 'counter_section',
+	'default'     => [
+		'background-color'      => 'rgba(20,20,20,.8)',
+		'background-image'      => '',
+		'background-repeat'     => 'repeat',
+		'background-position'   => 'center center',
+		'background-size'       => 'cover',
+		'background-attachment' => 'scroll',
+	],
+	'transport'   => 'auto',
+	'output'      => [
+		[
+			'element' => '#counter',
+		],
 	],
 ] );
