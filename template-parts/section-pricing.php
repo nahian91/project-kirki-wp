@@ -6,63 +6,36 @@
           <p>A desire to help and empower others between community contributors in technology <br> began to grow in 2020.</p>
         </div>
         <div class="row">
+
+        <?php
+          $prices = get_theme_mod('price_repeater');
+          foreach($prices as $price) {
+        ?>
           <div class="col-lg-4 col-md-6 col-xs-12">
-            <div class="table wow fadeInLeft" data-wow-delay="1.2s">
+            <div id="<?php 
+              if($price['price_featured'] == true) { 
+                echo 'active-tb';
+              } ?>" class="table wow fadeInLeft" data-wow-delay="1.2s">
               <div class="title">
-                <h3>Basic</h3>
+                <h3><?php echo $price['price_name'];?></h3>
               </div>
               <div class="pricing-header">
-                <p class="price-value">$12.90<span>/ Month</span></p>
+                <p class="price-value">$ <?php echo $price['price_amount'];?><span>/ <?php echo $price['price_days'];?></span></p>
               </div>
               <ul class="description">
-                <li>Business Analyzing</li>
-                <li>24/7 Tech Suport</li>
-                <li>Operational Excellence</li>
-                <li>Business Idea Ready</li>
-                <li>2 Database</li>
-                <li>Customer Support</li>
+                <li><?php echo $price['price_feature-1'];?></li>
+                <li><?php echo $price['price_feature-2'];?></li>
+                <li><?php echo $price['price_feature-3'];?></li>
+                <li><?php echo $price['price_feature-4'];?></li>
+                <li><?php echo $price['price_feature-5'];?></li>
               </ul>
-              <button class="btn btn-common">Get It</button>
+              <button class="btn btn-common"><a href="<?php echo $price['price_btn_url'];?>"><?php echo $price['price_btn_text'];?></a></button>
             </div> 
           </div>
-          <div class="col-lg-4 col-md-6 col-xs-12 active">
-            <div class="table wow fadeInUp" id="active-tb" data-wow-delay="1.2s">
-              <div class="title">
-                <h3>Profesional</h3>
-              </div>
-               <div class="pricing-header">
-                  <p class="price-value">$49.90<span>/ Month</span></p>
-               </div>
-              <ul class="description">
-                <li>Business Analyzing</li>
-                <li>24/7 Tech Suport</li>
-                <li>Operational Excellence</li>
-                <li>Business Idea Ready</li>
-                <li>2 Database</li>
-                <li>Customer Support</li>
-              </ul>
-              <button class="btn btn-common">Get It</button>
-           </div> 
-          </div>
-          <div class="col-lg-4 col-md-6 col-xs-12">
-            <div class="table wow fadeInRight" data-wow-delay="1.2s">
-              <div class="title">
-                <h3>Expert</h3>
-              </div>
-               <div class="pricing-header">
-                  <p class="price-value">$89.90<span>/ Month</span></p>
-               </div>
-              <ul class="description">
-                <li>Business Analyzing</li>
-                <li>24/7 Tech Suport</li>
-                <li>Operational Excellence</li>
-                <li>Business Idea Ready</li>
-                <li>2 Database</li>
-                <li>Customer Support</li>
-              </ul>
-              <button class="btn btn-common">Get It</button>
-            </div> 
-          </div>
+        <?php
+          }
+        ?>
+          
         </div>
       </div>
     </section>

@@ -12,6 +12,13 @@ Kirki::add_panel( 'stack_panel', array(
     'description' => esc_html__( 'Description', 'stack' ),
 ) );
 
+// Bannar Section
+Kirki::add_section( 'bannar_section', array(
+    'title'          => esc_html__( 'Bannar Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
 Kirki::add_field( 'stack_config', [
 	'type'        => 'custom',
 	'settings'    => 'bannar_content_setting',
@@ -19,13 +26,6 @@ Kirki::add_field( 'stack_config', [
 	'default'         => '<h3 style="padding:15px 10px; background:#fff; margin:0;">' . __( 'Bannar Content', 'stack' ) . '</h3>',
 	'priority'    => 10,
 ] );
-
-// Bannar Section
-Kirki::add_section( 'bannar_section', array(
-    'title'          => esc_html__( 'Bannar Section', 'stack' ),
-    'panel'          => 'stack_panel',
-    'priority'       => 160,
-) );
 
 // Bannar Heading
 Kirki::add_field( 'stack_config', [
@@ -501,7 +501,7 @@ Kirki::add_section( 'counter_section', array(
     'priority'       => 160,
 ) );
 
-//  Team Show / Hide
+//  Counter Show / Hide
 Kirki::add_field( 'stack_config', [
 	'type'     => 'checkbox',
 	'settings' => 'counter_show',
@@ -592,4 +592,512 @@ Kirki::add_field( 'stack_config', [
 			'element' => '#counter',
 		],
 	],
+] );
+
+
+
+// Price Section
+Kirki::add_section( 'price_section', array(
+    'title'          => esc_html__( 'Price Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+// Price Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Price Items', 'stack' ),
+	'section'     => 'price_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'price_name',
+	],
+	'button_label' => esc_html__('Add New Price Item', 'stack' ),
+	'settings'     => 'price_repeater',
+	'fields' => [
+		'price_featured' => [
+			'type'        => 'checkbox',
+			'label'       => esc_html__( 'Featured?', 'stack' ),
+			'default'     => false,
+		],
+        'price_name' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Price Name', 'stack' ),
+			'default'     => __('Basic', 'stack'),
+		],
+		'price_amount' => [
+			'type'        => 'number',
+			'label'       => esc_html__( 'Price Amount', 'stack' ),
+			'default'     => __('12.99', 'stack'),
+		],
+		'price_days' => [
+			'type'        => 'select',
+			'label'       => esc_html__( 'Select Days', 'stack' ),
+			'default'     => '',
+			'choices'    => array(
+				'month' => __('month', 'stack'),
+				'year' => __('year', 'stack'),
+			)
+		],
+		
+		'price_feature-1' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Feature 1', 'stack' ),
+			'default'     => __('Business Analyzing', 'stack'),
+		],
+		
+		'price_feature-2' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Feature 2', 'stack' ),
+			'default'     => __('24/7 Tech Suport', 'stack'),
+		],
+		
+		'price_feature-3' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Feature 3', 'stack' ),
+			'default'     => __('Operational Excellence', 'stack'),
+		],
+		
+		'price_feature-4' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Feature 4', 'stack' ),
+			'default'     => __('2 Database', 'stack'),
+		],
+		
+		'price_feature-5' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Feature 5', 'stack' ),
+			'default'     => __('Customer Support', 'stack'),
+		],
+
+		'price_btn_text' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Button Label', 'stack' ),
+			'default'     => __('Get It', 'stack'),
+		],
+		'price_btn_url' => [
+			'type'        => 'link',
+			'label'       => esc_html__( 'Button URL', 'stack' ),
+			'default'     => 'https://wwww.facebook.com',
+		],
+	],
+    'choices' => [
+		'limit' => 3
+	],
+] );
+
+// Skill Section
+Kirki::add_section( 'skill_section', array(
+    'title'          => esc_html__( 'Skill Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Skill Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'checkbox',
+	'settings' => 'skill_show',
+	'label'    => esc_html__( 'Skill Show?', 'stack' ),
+	'section'  => 'skill_section',
+	'default'  => true
+] );
+
+//  Skill Image
+Kirki::add_field( 'stack_config', [
+	'type'     => 'image',
+	'settings' => 'skill_image',
+	'label'    => esc_html__( 'Skill Image', 'stack' ),
+	'section'  => 'skill_section',
+	'default'  => ''
+] );
+
+//  Skill Title
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'skill_title',
+	'label'    => esc_html__( 'Skill Title', 'stack' ),
+	'section'  => 'skill_section',
+	'default'  => __('Our Skill', 'stack')
+] );
+
+//  Skill Description
+Kirki::add_field( 'stack_config', [
+	'type'     => 'textarea',
+	'settings' => 'skill_desc',
+	'label'    => esc_html__( 'Skill Description', 'stack' ),
+	'section'  => 'skill_section',
+	'default'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus architecto laudantium dolorem, ', 'stack')
+] );
+
+// Skill Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Skill Items', 'stack' ),
+	'section'     => 'skill_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'skill_item_title',
+	],
+	'button_label' => esc_html__('Add New Skill Item', 'stack' ),
+	'settings'     => 'skill_repeater',
+	'fields' => [
+        'skill_item_title' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Skill Title', 'stack' ),
+			'default'     => __('Strategy & Analysis', 'stack'),
+		],
+		'skill_item_number' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Skill Number', 'stack' ),
+			'default'     => '100',
+		],
+	],
+    'choices' => [
+		'limit' => 3
+	],
+] );
+
+
+// Work Section
+Kirki::add_section( 'work_section', array(
+    'title'          => esc_html__( 'Work Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Work Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'switch',
+	'settings' => 'work_show',
+	'label'    => esc_html__( 'Work Show?', 'stack' ),
+	'section'  => 'work_section',
+	'default'  => 'show',
+	'choices'     => [
+		'show'  => esc_html__( 'Show', 'stack' ),
+		'hide' => esc_html__( 'Hide', 'stack' ),
+	],
+] );
+
+//  Work Title
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'work_title',
+	'label'    => esc_html__( 'Work Title', 'stack' ),
+	'section'  => 'work_section',
+	'default'  => __('Our Work', 'stack')
+] );
+
+//  Work Description
+Kirki::add_field( 'stack_config', [
+	'type'     => 'textarea',
+	'settings' => 'work_desc',
+	'label'    => esc_html__( 'Work Description', 'stack' ),
+	'section'  => 'work_section',
+	'default'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus architecto laudantium dolorem, ', 'stack')
+] );
+
+// Work Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Work Items', 'stack' ),
+	'section'     => 'work_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'work_item_title',
+	],
+	'button_label' => esc_html__('Add New Work Item', 'stack' ),
+	'settings'     => 'work_repeater',
+	'fields' => [
+        'work_item_title' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Work Title', 'stack' ),
+			'default'     => __('Creative Design', 'stack'),
+		],
+		'work_item_small_image' => [
+			'type'        => 'image',
+			'label'       => esc_html__( 'Work Small Image', 'stack' ),
+			'default'     => '100',
+		],
+		'work_item_big_image' => [
+			'type'        => 'image',
+			'label'       => esc_html__( 'Work Big Image', 'stack' ),
+			'default'     => '100',
+		],
+	],
+    'choices' => [
+		'limit' => 6
+	],
+] );
+
+
+// Testimonials Section
+Kirki::add_section( 'testimonials_section', array(
+    'title'          => esc_html__( 'Testimonials Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Testimonials Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'switch',
+	'settings' => 'testimonials_show',
+	'label'    => esc_html__( 'Testimonials Show?', 'stack' ),
+	'section'  => 'testimonials_section',
+	'default'  => 'show',
+	'choices'     => [
+		'show'  => esc_html__( 'Show', 'stack' ),
+		'hide' => esc_html__( 'Hide', 'stack' ),
+	],
+] );
+
+// Testimonials Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Testimonials Items', 'stack' ),
+	'section'     => 'testimonials_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'testimonial_item_name',
+	],
+	'button_label' => esc_html__('Add New Testimonial Item', 'stack' ),
+	'settings'     => 'testimonial_repeater',
+	'fields' => [
+        'testimonial_item_image' => [
+			'type'        => 'image',
+			'label'       => esc_html__( 'Testimonial Image', 'stack' ),
+			'default'     => '',
+		],
+		'testimonial_item_name' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Testimonial Name', 'stack' ),
+			'default'     => __('John Doe', 'stack'),
+		],
+		'testimonial_item_desg' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Testimonial Designation', 'stack' ),
+			'default'     => __('Web Developer', 'stack'),
+		],
+		'testimonial_item_desc' => [
+			'type'        => 'textarea',
+			'label'       => esc_html__( 'Testimonial Description', 'stack' ),
+			'default'     => __('Holisticly empower leveraged ROI whereas effective web-readiness. Completely enable emerging meta-services with cross-platform web services. Quickly initiate inexpensive total linkage rather than extensible scenarios. Holisticly empower leveraged ROI whereas effective web-readiness. ', 'stack'),
+		],
+	],
+    'choices' => [
+		'limit' => 6
+	],
+] );
+
+
+// Clients Section
+Kirki::add_section( 'clients_section', array(
+    'title'          => esc_html__( 'Clients Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Clients Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'checkbox',
+	'settings' => 'clients_show',
+	'label'    => esc_html__( 'Clients Show?', 'stack' ),
+	'section'  => 'clients_section',
+	'default'  => true,
+] );
+
+//  Clients Title
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'client_title',
+	'label'    => esc_html__( 'Client Title', 'stack' ),
+	'section'  => 'clients_section',
+	'default'  => __('NOTABLE CLIENTS', 'stack'),
+] );
+
+//  Clients Description
+Kirki::add_field( 'stack_config', [
+	'type'     => 'textarea',
+	'settings' => 'client_desc',
+	'label'    => esc_html__( 'Client Description', 'stack' ),
+	'section'  => 'clients_section',
+	'default'  => __('Over the last 20 years, we have helped and guided organisations to achieve outstanding results', 'stack'),
+] );
+
+// Clients Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Clients Items', 'stack' ),
+	'section'     => 'clients_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'client_item_name',
+	],
+	'button_label' => esc_html__('Add New Client Item', 'stack' ),
+	'settings'     => 'client_repeater',
+	'fields' => [
+		'client_item_name' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Client Name', 'stack' ),
+			'default'     => __('John Doe', 'stack'),
+		],
+        'client_item_image' => [
+			'type'        => 'image',
+			'label'       => esc_html__( 'Client Image', 'stack' ),
+			'default'     => '',
+		],
+	],
+    'choices' => [
+		'limit' => 4
+	],
+] );
+
+
+// Contact Section
+Kirki::add_section( 'contact_section', array(
+    'title'          => esc_html__( 'Contact Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+//  Contact Show / Hide
+Kirki::add_field( 'stack_config', [
+	'type'     => 'checkbox',
+	'settings' => 'contact_show',
+	'label'    => esc_html__( 'Contact Show?', 'stack' ),
+	'section'  => 'contact_section',
+	'default'  => true,
+] );
+
+//  Contact Title
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'contact_title',
+	'label'    => esc_html__( 'Contact Title', 'stack' ),
+	'section'  => 'contact_section',
+	'default'  => __('Were a friendly bunch..', 'stack'),
+] );
+
+//  Contact Description
+Kirki::add_field( 'stack_config', [
+	'type'     => 'textarea',
+	'settings' => 'contact_desc',
+	'label'    => esc_html__( 'Contact Description', 'stack' ),
+	'section'  => 'contact_section',
+	'default'  => __('We create projects for companies and startups with a passion for quality', 'stack'),
+] );
+
+//  Contact SubTitle
+Kirki::add_field( 'stack_config', [
+	'type'     => 'text',
+	'settings' => 'contact_subtitle',
+	'label'    => esc_html__( 'Contact Sub Title', 'stack' ),
+	'section'  => 'contact_section',
+	'default'  => __('Contact Us', 'stack'),
+] );
+
+// Contact Items
+Kirki::add_field( 'stack_config', [
+	'type'        => 'repeater',
+	'label'       => esc_html__( 'Contact Items', 'stack' ),
+	'section'     => 'contact_section',
+	'priority'    => 10,
+	'row_label' => [
+		'type'  => 'field',
+		'value' => esc_html__( 'Add New Item', 'stack' ),
+		'field' => 'contact_name',
+	],
+	'button_label' => esc_html__('Add New Contact Item', 'stack' ),
+	'settings'     => 'contact_repeater',
+	'fields' => [
+		'contact_icon' => [
+			'type'        => 'select',
+			'label'       => esc_html__( 'Contact Icon', 'stack' ),
+			'default'     => 'lni-map-marker',
+			'choices'    => array(
+				'lni-map-marker' => __('Map Icon', 'stack'),
+				'lni-envelope' => __('Envelope Icon', 'stack'),
+				'lni-phone-handset' => __('Phone Icon', 'stack'),
+			)
+		],
+        'contact_name' => [
+			'type'        => 'text',
+			'label'       => esc_html__( 'Contact Name', 'stack' ),
+			'default'     => '',
+		],
+	],
+    'choices' => [
+		'limit' => 3
+	],
+] );
+
+
+// Footer Section
+Kirki::add_section( 'footer_section', array(
+    'title'          => esc_html__( 'Footer Section', 'stack' ),
+    'panel'          => 'stack_panel',
+    'priority'       => 160,
+) );
+
+// Footer Logo
+Kirki::add_field( 'stack_config', [
+	'type'     => 'image',
+	'settings' => 'footer_image',
+	'label'    => esc_html__( 'Footer Image', 'stack' ),
+	'section'  => 'footer_section',
+	'default'  => '',
+] );
+
+// Footer Facebook
+Kirki::add_field( 'stack_config', [
+	'type'     => 'link',
+	'settings' => 'footer_facebook',
+	'label'    => esc_html__( 'Facebook URL', 'stack' ),
+	'section'  => 'footer_section',
+	'default'  => '',
+] );
+
+// Footer Twitter
+Kirki::add_field( 'stack_config', [
+	'type'     => 'link',
+	'settings' => 'footer_twitter',
+	'label'    => esc_html__( 'Twitter URL', 'stack' ),
+	'section'  => 'footer_section',
+	'default'  => '',
+] );
+
+// Footer Instagram
+Kirki::add_field( 'stack_config', [
+	'type'     => 'link',
+	'settings' => 'footer_instagram',
+	'label'    => esc_html__( 'Instagram URL', 'stack' ),
+	'section'  => 'footer_section',
+	'default'  => '',
+] );
+
+// Footer Linkedin
+Kirki::add_field( 'stack_config', [
+	'type'     => 'link',
+	'settings' => 'footer_linkedin',
+	'label'    => esc_html__( 'Linkedin URL', 'stack' ),
+	'section'  => 'footer_section',
+	'default'  => '',
+] );
+
+// Footer Copyright
+Kirki::add_field( 'stack_config', [
+	'type'     => 'editor',
+	'settings' => 'footer_copy',
+	'label'    => esc_html__( 'Copyright Text', 'stack' ),
+	'section'  => 'footer_section',
+	'default'  => '',
 ] );
