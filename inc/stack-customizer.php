@@ -42,7 +42,7 @@ Kirki::add_field( 'stack_config', [
             'element' => '.head-title',
             'function' => 'html'
         )
-    )
+	),
 ] );
 
 // Bannar Heading Typography
