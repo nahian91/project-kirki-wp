@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-3 col-xs-12">
             <div class="footer-logo">
-              <img src="<?php echo get_theme_mod('footer_image');?>" alt="">
+              <img src="<?php echo esc_url(get_theme_mod('footer_image'));?>" alt="">
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-xs-12">     
@@ -12,7 +12,7 @@
               <?php
                 if(get_theme_mod('footer_facebook')) {
               ?>
-                <a class="facebook" href="<?php echo get_theme_mod('footer_facebook');?>"><i class="lni-facebook-filled"></i></a>
+                <a class="facebook" href="<?php echo esc_url(get_theme_mod('footer_facebook'));?>"><i class="lni-facebook-filled"></i></a>
               <?php
                 }
               ?>
@@ -21,7 +21,7 @@
               <?php
                 if(get_theme_mod('footer_twitter')) {
               ?>
-                <a class="twitter" href="<?php echo get_theme_mod('footer_twitter');?>"><i class="lni-twitter-filled"></i></a>
+                <a class="twitter" href="<?php echo esc_url(get_theme_mod('footer_twitter'));?>"><i class="lni-twitter-filled"></i></a>
               <?php
                 }
               ?>
@@ -30,7 +30,7 @@
               <?php
                 if(get_theme_mod('footer_instagram')) {
               ?>
-                <a class="instagram" href="<?php echo get_theme_mod('footer_instagram');?>"><i class="lni-instagram-filled"></i></a>
+                <a class="instagram" href="<?php echo esc_url(get_theme_mod('footer_instagram'));?>"><i class="lni-instagram-filled"></i></a>
               <?php
                 }
               ?>
@@ -39,7 +39,7 @@
               <?php
                 if(get_theme_mod('footer_linkedin')) {
               ?>
-                <a class="linkedin" href="<?php echo get_theme_mod('footer_linkedin');?>"><i class="lni-linkedin-filled"></i></a>
+                <a class="linkedin" href="<?php echo esc_url(get_theme_mod('footer_linkedin'));?>"><i class="lni-linkedin-filled"></i></a>
               <?php
                 }
               ?>            
@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-5 col-xs-12">
-            <p><?php echo get_theme_mod('footer_copy');?></p>
+            <p><?php echo esc_html(get_theme_mod('footer_copy'));?></p>
           </div> 
         </div>
       </div>

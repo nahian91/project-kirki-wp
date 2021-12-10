@@ -6,8 +6,8 @@
       <!-- Container Starts -->
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s"><?php echo get_theme_mod('work_title');?></h2>
-          <p><?php echo get_theme_mod('work_desc');?></p>
+          <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s"><?php echo esc_html(get_theme_mod('work_title'));?></h2>
+          <p><?php echo esc_html(get_theme_mod('work_desc'));?></p>
         </div>
 
       
@@ -27,14 +27,14 @@
                   $img_big_url = wp_get_attachment_image_src($work['work_item_big_image']);
               ?>
 
-                <img src="<?php echo $img_small_url[0];?>" alt="" />  
+                <img src="<?php echo esc_url($img_small_url[0]);?>" alt="" />  
                 <div class="single-content">
                   <div class="fancy-table">
                     <div class="table-cell">
                       <div class="zoom-icon">
-                        <a class="lightbox" href="<?php echo $img_big_url[0];?>"><i class="lni-eye item-icon"></i></a>
+                        <a class="lightbox" href="<?php echo esc_url($img_big_url[0]);?>"><i class="lni-eye item-icon"></i></a>
                       </div>
-                      <a href="#"><?php echo $work['work_item_title'];?></a>
+                      <a href="#"><?php echo esc_html($work['work_item_title']);?></a>
                     </div>
                   </div>
                 </div>
